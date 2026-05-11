@@ -31,7 +31,7 @@ https://vaishnavi-balasubramaniyan.github.io/
 3. Go to **Settings → Pages**.
 4. Under **Build and deployment**, select **Deploy from a branch**.
 5. Select branch `main` and folder `/ (root)`, then click **Save**.
-6. Open `https://pravinkumarvr.github.io/` after GitHub Pages finishes deployment.
+6. Open `https://vaishnavi-balasubramaniyan.github.io/` after GitHub Pages finishes deployment.
 
 ## Terminal publish option
 
