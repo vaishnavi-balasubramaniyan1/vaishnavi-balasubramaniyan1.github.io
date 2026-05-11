@@ -4,7 +4,7 @@ Static portfolio website prepared for GitHub Pages.
 
 ## Recommended GitHub Pages URL for the connected account
 
-Authenticated GitHub username detected: `pravinkumarvr`
+Authenticated GitHub username detected: `vaishnavi-balasubramaniyan`
 
 Use this repository name:
 
