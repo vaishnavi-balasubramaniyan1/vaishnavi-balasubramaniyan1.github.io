@@ -1,13 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Vaishnavi Balasubramaniyan, Lead Software Test Engineer and QA Automation Lead specializing in SaaS, payments, API automation, Selenium, Karate, CI/CD, and AI-assisted test development." />
+  <title>Vaishnavi Balasubramaniyan | QA Automation Lead Portfolio</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --accent: #3652ff;
+      --accent-dark: #2134b8;
+      --line: #e6e9f0;
+      --chip: #eef2ff;
+      --shadow: 0 18px 50px rgba(24, 39, 75, 0.10);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(54, 82, 255, 0.13), transparent 32rem),
+        radial-gradient(circle at top right, rgba(44, 196, 160, 0.11), transparent 28rem),
+        var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(247, 248, 251, 0.78);
+      border-bottom: 1px solid rgba(230, 233, 240, 0.75);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 24px;
+    }
+
+    .brand { font-weight: 800; letter-spacing: -0.04em; font-size: 1.05rem; }
+    .nav-links { display: flex; gap: 20px; align-items: center; color: var(--muted); font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      padding: 86px 0 54px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .hero-card, .side-card, section {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(230, 233, 240, 0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card { padding: 44px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-dark);
+      background: var(--chip);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.075em;
+      margin: 0 0 18px;
+    }
+
+    .subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: var(--muted);
+      max-width: 780px;
+      margin: 0 0 28px;
+    }
+
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(24, 39, 75, 0.13); }
+    .btn.primary { background: var(--accent); color: white; border-color: var(--accent); }
+    .btn.secondary { background: white; color: var(--text); }
+
+    .side-card { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; }
+    .metric { border-bottom: 1px solid var(--line); padding-bottom: 18px; }
+    .metric:last-child { border-bottom: 0; padding-bottom: 0; }
+    .metric strong { display: block; font-size: 2rem; letter-spacing: -0.05em; }
+    .metric span { color: var(--muted); }
+
+    section { padding: 34px; margin: 22px 0; }
+    h2 { margin: 0 0 18px; font-size: 1.7rem; letter-spacing: -0.04em; }
+    h3 { margin: 0 0 6px; font-size: 1.1rem; letter-spacing: -0.02em; }
+    p { margin-top: 0; }
+    .muted { color: var(--muted); }
+
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+      background: #fff;
+    }
+
+    .timeline { display: grid; gap: 16px; }
+    .role { border-left: 4px solid var(--accent); padding: 18px 20px; background: #fff; border-radius: 0 18px 18px 0; border-top: 1px solid var(--line); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .role-top { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+    .role ul { margin: 12px 0 0; padding-left: 20px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: var(--chip); border: 1px solid #dfe5ff; color: #263899; border-radius: 999px; padding: 8px 12px; font-weight: 700; font-size: 0.9rem; }
+
+    .contact { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .contact a, .contact span { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; color: var(--muted); }
+
+    footer { padding: 34px 0 54px; text-align: center; color: var(--muted); font-size: 0.95rem; }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding-top: 52px; }
+      .hero-card { padding: 30px; }
+      .grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
-    <a href="https://vaishnavi-balasubramaniyan1.github.io/" target="_blank">
-        Portfolio Website
-    </a>
+  <header>
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#top">Vaishnavi Balasubramaniyan</a>
+        <div class="nav-links">
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#impact">Impact</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <div class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">Lead Software Test Engineer | QA Automation Lead</div>
+        <h1>Quality engineering leader for SaaS, banking, payments and automation.</h1>
+        <p class="subtitle">
+          I lead QA/SDET delivery across enterprise workflows, combining automation strategy, API/UI test engineering, backend validation, CI/CD readiness, defect triage and release sign-off.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="Vaishnavi_Balasubramaniyan_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+          <a class="btn secondary" href="mailto:bvaishnavibalasubramanian@gmail.com">Email Me</a>
+        </div>
+      </div>
+      <aside class="side-card" aria-label="Career metrics">
+        <div class="metric"><strong>8.9 yrs</strong><span>Experience in QA, SDET and test automation leadership</span></div>
+        <div class="metric"><strong>50%</strong><span>Faster regression execution through automation optimization</span></div>
+        <div class="metric"><strong>20%+</strong><span>Productivity improvement using AI-assisted automation coding practices</span></div>
+      </aside>
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="muted">
+        Lead Software Test Engineer with experience across Freshworks enterprise SaaS workflows, Barclays gateway billing and admin portals, and Accenture client-facing banking, payments and insurance projects. Strong hands-on exposure in API automation, Selenium UI automation, Kafka and database validation, CI/CD pipelines, and AI-assisted test generation, refactoring and review.
+      </p>
+    </section>
+
+    <section id="impact">
+      <h2>Impact Highlights</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Regression acceleration</h3>
+          <p class="muted">Improved regression execution speed by 50% through suite stabilization, reusable framework improvements and automation optimization.</p>
+        </div>
+        <div class="card">
+          <h3>AI-assisted QA delivery</h3>
+          <p class="muted">Used Cursor and AI-assisted coding to generate, refactor and optimize automation tests, improving delivery productivity by 20%+.</p>
+        </div>
+        <div class="card">
+          <h3>3-layer validation</h3>
+          <p class="muted">Built validation coverage across API, Kafka, database and reporting workflows for high-volume business processes.</p>
+        </div>
+        <div class="card">
+          <h3>Release confidence</h3>
+          <p class="muted">Owned test strategy, automation roadmap, CI/CD readiness, defect triage, stakeholder updates and release sign-off.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <div class="timeline">
+        <article class="role">
+          <div class="role-top">
+            <h3>Freshworks - Lead Software Test Engineer / QA Automation Lead</h3>
+            <span class="muted">Aug 2024 - Present</span>
+          </div>
+          <ul class="muted">
+            <li>Lead QA/SDET ownership for enterprise SaaS workflows, automation planning, technical reviews and release readiness.</li>
+            <li>Built Ruby/Selenium automation and backend validation coverage for high-volume workflows.</li>
+            <li>Guided peer reviews, debugging support and reusable automation utilities across modern engineering stacks.</li>
+          </ul>
+        </article>
+        <article class="role">
+          <div class="role-top">
+            <h3>Barclays - Senior Quality Analyst, Gateways Billing Service and Admin Portal</h3>
+            <span class="muted">Jul 2021 - Jul 2024</span>
+          </div>
+          <ul class="muted">
+            <li>Owned test strategy, test plan, automation roadmap, regression execution and sign-off.</li>
+            <li>Built a custom 3-layer Karate framework for API testing, Kafka validation, database validation and report-verification utilities.</li>
+            <li>Defined JMeter SLAs and integrated Selenium/API regression suites with Jenkins/GitHub pipelines.</li>
+          </ul>
+        </article>
+        <article class="role">
+          <div class="role-top">
+            <h3>Accenture - Senior Quality Analyst, Banking: PNC Bank and Zurich Insurance</h3>
+            <span class="muted">Jul 2017 - Jul 2021</span>
+          </div>
+          <ul class="muted">
+            <li>Delivered client-facing QA for online banking APIs, real-time payments, card/account services and customer-service UI journeys.</li>
+            <li>Automated Karate/Cucumber and Selenium suites across REST, SOAP, authentication and multi-browser validations.</li>
+            <li>Collaborated with Scrum teams, product owners, technical BAs and clients for release delivery.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Core Skills</h2>
+      <div class="chips" aria-label="Skills list">
+        <span class="chip">SaaS QA</span><span class="chip">Payment Gateways</span><span class="chip">Karate Framework</span><span class="chip">Cucumber</span><span class="chip">Selenium WebDriver</span><span class="chip">BDD</span><span class="chip">REST</span><span class="chip">SOAP</span><span class="chip">Postman</span><span class="chip">Kafka</span><span class="chip">GoldenGate</span><span class="chip">Jenkins</span><span class="chip">GitHub Actions</span><span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Core Java</span><span class="chip">Ruby on Rails</span><span class="chip">SQL</span><span class="chip">MySQL</span><span class="chip">Oracle</span><span class="chip">Cursor</span><span class="chip">AI-assisted Test Development</span>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education & Certification</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>B.Tech - Computer Science and Engineering</h3>
+          <p class="muted">Kumaraguru College of Technology, Tamil Nadu · 2013 - 2017</p>
+        </div>
+        <div class="card">
+          <h3>Microsoft AZ-900 Cloud Certification</h3>
+          <p class="muted">Cloud fundamentals certification.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="muted">Open to QA automation leadership, SDET, SaaS QA, payments testing and automation strategy opportunities.</p>
+      <div class="contact">
+        <a href="mailto:bvaishnavibalasubramanian@gmail.com">bvaishnavibalasubramanian@gmail.com</a>
+        <span>Chennai, India</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Vaishnavi Balasubramaniyan. Portfolio built from resume content.</div>
+  </footer>
 </body>
 </html>
