@@ -9,13 +9,13 @@ Authenticated GitHub username detected: `pravinkumarvr`
 Use this repository name:
 
 ```text
-pravinkumarvr.github.io
+vaishnavi-balasubramaniyan.github.io
 ```
 
 After publishing, the site URL will be:
 
 ```text
-https://pravinkumarvr.github.io/
+https://vaishnavi-balasubramaniyan.github.io/
 ```
 
 ## Files
